@@ -15,32 +15,38 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-[#242424] text-gray-800 dark:text-gray-100">
-      <h2 className="text-xl font-bold mb-6 text-green-700"> Username: admin</h2>
-      <h2 className="text-xl font-bold mb-6 text-green-700"> Password: 12345</h2>
-      <h2 className="text-2xl font-bold mb-6 text-green-700"> Please Login</h2>
-      <form onSubmit={handleLogin} className="flex flex-col gap-4">
-        <input
-          type="text"
-          placeholder="admin"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="p-2 rounded-md bg-gray-300 dark:bg-gray-600 border-2 border-green-200"
-        />
-        <input
-          type="password"
-          placeholder="12345"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="p-2 rounded-md bg-gray-300 dark:bg-gray-600 border-2 border-green-200"
-        />
-        <button
-          type="submit"
-          className="p-2 bg-green-500 font-bold text-white rounded-md hover:bg-green-600"
-        >
-          Login
-        </button>
-      </form>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-[#2f3630] to-[#4e5b58] text-gray-100">
+      <div className="bg-[#2d3330] rounded-lg shadow-lg w-full sm:w-96 p-8">
+        <h2 className="text-3xl font-semibold text-center text-green-400 mb-6">Please Login</h2>
+        
+        <form onSubmit={handleLogin} className="flex flex-col gap-4">
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="p-3 rounded-md bg-gray-700 border-2 border-gray-600 text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="p-3 rounded-md bg-gray-700 border-2 border-gray-600 text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          <button
+            type="submit"
+            className="p-3 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+          >
+            Login
+          </button>
+        </form>
+        
+        <div className="text-center mt-4 text-sm text-gray-400">
+          <p className="mb-2">Username: <span className="font-semibold">admin</span></p>
+          <p>Password: <span className="font-semibold">12345</span></p>
+        </div>
+      </div>
     </div>
   );
 };

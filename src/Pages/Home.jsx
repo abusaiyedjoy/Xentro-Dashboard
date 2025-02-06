@@ -1,19 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { BsMoonStars } from "react-icons/bs";
-import { IoSearch } from "react-icons/io5";
 import { MdOutlineLightMode } from "react-icons/md";
 import logo from "./../assets/logo.png";
 import Sidebar from "../components/Sidebar";
-import { LuLayoutDashboard } from "react-icons/lu";
 import { TfiMenuAlt } from "react-icons/tfi";
-import TextSection from "../components/TextSection";
 import { RxCross2 } from "react-icons/rx";
+import { Outlet } from "react-router-dom";
 
 const Home = ({ onLogout, user }) => {
   const [darkMode, setDarkMode] = useState(true);
   const [showSidebar, setShowSidebar] = useState(true);
-  const [isGridLayout, setIsGridLayout] = useState(false);
 
   return (
     <div
@@ -33,17 +30,6 @@ const Home = ({ onLogout, user }) => {
             <img src={logo} alt="Logo" />
           </div>
           <div className="flex items-center space-x-4">
-            <div className="">
-              <IoSearch size={20} />
-            </div>
-            {/* Toggle TaskSidebar */}
-            <button onClick={() => setIsGridLayout((prev) => !prev)} className="cursor-pointer">
-              {isGridLayout ? (
-                <TfiMenuAlt size={20} />
-              ) : (
-                <LuLayoutDashboard size={20} />
-              )}
-            </button>
             <button onClick={() => setDarkMode(!darkMode)} className="">
               {darkMode ? (
                 <MdOutlineLightMode size={20} />
@@ -65,7 +51,7 @@ const Home = ({ onLogout, user }) => {
 
           {/* Tasks Section */}
           <div className="w-full">
-            <TextSection isGridLayout={isGridLayout} />
+            <Outlet onLogout={onLogout} user={user}/>
           </div>
         </main>
       </div>

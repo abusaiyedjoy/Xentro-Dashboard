@@ -1,19 +1,20 @@
 /* eslint-disable react/prop-types */
-import { FaPlus, FaRegCalendarAlt } from "react-icons/fa";
-import { IoStarSharp } from "react-icons/io5";
-import { LuLogOut, LuNotebookText } from "react-icons/lu";
-import { MdOutlineAssignmentInd } from "react-icons/md";
-import { TbBrandPlanetscale } from "react-icons/tb";
+import { FaUser } from "react-icons/fa";
+import { HiUsers } from "react-icons/hi";
+import { LuLogOut } from "react-icons/lu";
+import { RiDashboardHorizontalLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 
 
 const Sidebar = ({ onLogout, user }) => {
+    console.log(user);
     return (
-        <aside className="w-[250px] bg-white dark:bg-[#2c2c2c] shadow-md min-h-screen flex-col justify-between">
+        <aside className="w-[250px] bg-white dark:bg-[#2c2c2c] shadow-md h-full min-h-screen flex-col justify-between">
             <div className="w-[240px]">
                 <div className="p-6 text-center relative pt-5">
                     <img
-                        src="https://i.ibb.co.com/Y8zbHGL/jonas-kakaroto-KIPqvv-TOC1s-unsplash.jpg"
+                        src="https://i.ibb.co.com/DLcr2Vk/sam-moghadam-khamseh-yx-ZSAjy-To-P4-unsplash.jpg"
                         alt="Profile"
                         className="w-24 h-24 rounded-full bg-cover bg-center absolute -top-10 left-[50%] transform -translate-x-1/2 border-2 dark:border-gray-800"
                     />
@@ -23,31 +24,31 @@ const Sidebar = ({ onLogout, user }) => {
                 </div>
                 <ul className="space-y-4 p-2 dark:bg-[#232323] rounded-md mx-3 mt-2">
                     <li>
-                        <a
-                            href="#"
+                        <Link
+                            to="/profile"
                             className="flex items-center p-2 text-gray-900 dark:text-gray-200 hover:text-green-900 text-lg font-semibold rounded-lg hover:bg-[#dbe8dd] dark:hover:bg-[#263126]"
                         >
-                            <LuNotebookText className="mr-2" />
+                            <FaUser className="mr-2" />
                             My Profile
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
-                            href="#"
+                        <Link
+                            to="/users"
                             className="flex items-center p-2 text-gray-900 dark:text-gray-200 hover:text-green-900 text-lg font-semibold rounded-lg hover:bg-[#dbe8dd] dark:hover:bg-[#263126]"
                         >
-                            <FaRegCalendarAlt className="mr-2" />
+                            <HiUsers className="mr-2" />
                             Users
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
-                            href="#"
+                        <Link
+                            to="/products"
                             className="flex items-center p-2 text-gray-900 dark:text-gray-200 hover:text-green-900 text-lg font-semibold rounded-lg hover:bg-[#dbe8dd] dark:hover:bg-[#263126]"
                         >
-                            <IoStarSharp className="mr-2" />
+                            <RiDashboardHorizontalLine className="mr-2" />
                             Products
-                        </a>
+                        </Link>
                     </li>
 
                 </ul>
