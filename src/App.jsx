@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
+import { toast } from "react-toastify";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -18,6 +19,7 @@ const App = () => {
     setUser(null);
     localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("user");
+    toast.success("Sign Out Succesful")
   };
 
   useState(() => {

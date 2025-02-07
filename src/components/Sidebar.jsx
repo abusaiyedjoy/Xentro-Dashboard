@@ -1,16 +1,24 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { HiUsers } from "react-icons/hi";
 import { LuLogOut } from "react-icons/lu";
 import { RiDashboardHorizontalLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 
 const Sidebar = ({ onLogout, user }) => {
-    console.log(user);
+    const location = useLocation()
+
+    const [active, setActive] = useState(location.pathname);
+
+    const handleMenuClick = (menu) => {
+        setActive(menu);
+    };
+
     return (
-        <aside className="w-[250px] bg-white dark:bg-[#2c2c2c] shadow-md h-full min-h-screen flex-col justify-between">
+        <aside className="w-[250px] bg-white dark:bg-[#2c2c2c] rounded-md shadow-md h-full min-h-screen flex-col justify-between">
             <div className="w-[240px]">
                 <div className="p-6 text-center relative pt-5">
                     <img
@@ -26,7 +34,12 @@ const Sidebar = ({ onLogout, user }) => {
                     <li>
                         <Link
                             to="/profile"
-                            className="flex items-center p-2 text-gray-900 dark:text-gray-200 hover:text-green-900 text-lg font-semibold rounded-lg hover:bg-[#dbe8dd] dark:hover:bg-[#263126]"
+                            onClick={() => handleMenuClick("/profile")}
+                            className={`flex items-center py-2 px-4 text-gray-900 rounded-full dark:text-gray-200 text-lg font-semibold  
+                                ${active === "/profile"
+                                    ? "text-green-900 bg-[#dbe8dd] dark:bg-[#263126]"
+                                    : "hover:text-green-900 hover:bg-[#dbe8dd] dark:hover:bg-[#263126]"
+                                }`}
                         >
                             <FaUser className="mr-2" />
                             My Profile
@@ -35,7 +48,12 @@ const Sidebar = ({ onLogout, user }) => {
                     <li>
                         <Link
                             to="/users"
-                            className="flex items-center p-2 text-gray-900 dark:text-gray-200 hover:text-green-900 text-lg font-semibold rounded-lg hover:bg-[#dbe8dd] dark:hover:bg-[#263126]"
+                            onClick={() => handleMenuClick("/users")}
+                            className={`flex items-center py-2 px-4 text-gray-900 rounded-full dark:text-gray-200 text-lg font-semibold  
+                                ${active === "/users"
+                                    ? "text-green-900 bg-[#dbe8dd] dark:bg-[#263126]"
+                                    : "hover:text-green-900 hover:bg-[#dbe8dd] dark:hover:bg-[#263126]"
+                                }`}
                         >
                             <HiUsers className="mr-2" />
                             Users
@@ -44,7 +62,12 @@ const Sidebar = ({ onLogout, user }) => {
                     <li>
                         <Link
                             to="/products"
-                            className="flex items-center p-2 text-gray-900 dark:text-gray-200 hover:text-green-900 text-lg font-semibold rounded-lg hover:bg-[#dbe8dd] dark:hover:bg-[#263126]"
+                            onClick={() => handleMenuClick("/products")}
+                            className={`flex items-center py-2 px-4 text-gray-900 rounded-full dark:text-gray-200 text-lg font-semibold  
+                                ${active === "/products"
+                                    ? "text-green-900 bg-[#dbe8dd] dark:bg-[#263126]"
+                                    : "hover:text-green-900 hover:bg-[#dbe8dd] dark:hover:bg-[#263126]"
+                                }`}
                         >
                             <RiDashboardHorizontalLine className="mr-2" />
                             Products
@@ -55,7 +78,6 @@ const Sidebar = ({ onLogout, user }) => {
                 <div className="space-y-4 dark:bg-[#232323] rounded-md mx-3 mt-6">
                     <div className="p-2">
                         <a
-                            href="#"
                             onClick={onLogout}
                             className="flex items-center p-2 text-gray-900 dark:text-gray-200 hover:text-green-900 text-lg font-semibold rounded-lg hover:bg-[#dbe8dd] dark:hover:bg-[#243824]"
                         >

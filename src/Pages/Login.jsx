@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -9,6 +10,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
     if (username === "admin" && password === "12345") {
       onLogin(username);
+      toast.success("Login Successful")
     } else {
       alert("Invalid username or password!");
     }

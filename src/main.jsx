@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ThemeProvider>
     <React.StrictMode>
-      <ToastContainer />
+      <ToastContainer position="bottom-left" />
       <RouterProvider router={Router} />
     </React.StrictMode>
   </ThemeProvider>
