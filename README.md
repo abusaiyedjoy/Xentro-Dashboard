@@ -1,8 +1,26 @@
-# React + Vite
+# XentroBD Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Demo](https://xentrobd-dashboard.netlify.app)
 
-Currently, two official plugins are available:
+## Overview
+XentroBD Dashboard is a responsive web application that allows users to manage products through CRUD operations. The dashboard fetches product data from an API, displays it in a table, and provides functionalities to search, add, and delete products.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Fetch Products**: Retrieves a list of products from the API.
+- **Search Functionality**: Users can search products by name.
+- **Add a Product**: Users can add a new product to the API.
+- **Delete a Product**: Users can remove products from the API.
+- **Fully Responsive**: Optimized for all screen sizes.
+
+## Technologies Used
+- **React.js**: Frontend framework
+- **Tailwind CSS**: Styling
+- **Fetch API**: API calls (without Axios)
+
+## API Endpoints
+- **GET**: `https://jsonplaceholder.typicode.com/users` (Fetch all users)
+- **GET**: `https://api.restful-api.dev/objects` (Fetch all products)
+- **POST**: `https://api.restful-api.dev/objects` (Add a new product)
+- **GET**: `https://api.restful-api.dev/objects/:id` (Fetch a specific product)
+- **DELETE**: `https://api.restful-api.dev/objects/:id` (Delete a product)
+
