@@ -70,6 +70,7 @@ const Users = () => {
         <table className="w-full bg-white dark:bg-[#3c4a47] shadow-md rounded-lg overflow-hidden">
           <thead className="bg-gray-100 dark:bg-[#444] border-b">
             <tr>
+              <th className="px-4 py-2 text-left text-[#333] dark:text-white">NO.</th>
               <th className="px-4 py-2 text-left text-[#333] dark:text-white">NAME</th>
               <th className="px-4 py-2 text-left text-[#333] dark:text-white">EMAIL</th>
               <th className="px-4 py-2 text-left text-[#333] dark:text-white">CONTACT</th>
@@ -78,9 +79,10 @@ const Users = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredUsers.map((user) => (
+            {filteredUsers.map((user, index) => (
               <tr key={user.id} className="border-b hover:bg-gray-50 dark:hover:bg-[#444]">
-                <td className="px-4 py-2 flex items-center gap-2 text-[#333] dark:text-white">{user.name}</td>
+                <td className="px-4 py-2 text-green-600 text-lg font-medium dark:text-green-600">{index+1}</td>
+                <td className="px-4 py-2 text-[#333] dark:text-white">{user.name}</td>
                 <td className="px-4 py-2 text-[#333] dark:text-white">{user.email}</td>
                 <td className="px-4 py-2 text-[#333] dark:text-white">{user.phone}</td>
                 <td className="px-4 py-2 text-[#333] dark:text-white">{user.address.city}</td>

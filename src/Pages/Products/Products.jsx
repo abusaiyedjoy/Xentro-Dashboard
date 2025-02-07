@@ -141,7 +141,7 @@ const Products = () => {
         <table className="w-full bg-white dark:bg-[#3c4a47] shadow-md rounded-lg overflow-hidden">
           <thead className="bg-gray-100 dark:bg-[#444] border-b">
             <tr>
-              <th className="px-4 py-2 text-left text-[#333] dark:text-white">ID</th>
+              <th className="px-4 py-2 text-left text-[#333] dark:text-white">NO.</th>
               <th className="px-4 py-2 text-left text-[#333] dark:text-white">NAME</th>
               <th className="px-4 py-2 text-left text-[#333] dark:text-white">DETAILS</th>
               <th className="px-4 py-2 text-left text-[#333] dark:text-white">ACTIONS</th>

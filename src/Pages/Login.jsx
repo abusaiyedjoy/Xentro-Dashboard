@@ -19,7 +19,7 @@ const Login = ({ onLogin }) => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-[#2f3630] to-[#4e5b58] text-gray-100">
       <div className="bg-[#2d3330] rounded-lg shadow-lg w-full sm:w-96 p-8">
-        <h2 className="text-3xl font-semibold text-center text-green-400 mb-6">Please Login</h2>
+        <h2 className="text-3xl font-semibold text-center text-green-500 mb-6">Please Login</h2>
         
         <form onSubmit={handleLogin} className="flex flex-col gap-4">
           <input
@@ -38,7 +38,7 @@ const Login = ({ onLogin }) => {
           />
           <button
             type="submit"
-            className="p-3 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="p-3 bg-green-700 text-white rounded-lg text-lg hover:bg-green-800 font-medium focus:outline-none focus:ring-2 focus:ring-green-500"
           >
             Login
           </button>
