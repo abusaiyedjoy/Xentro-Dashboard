@@ -51,7 +51,7 @@ const Home = ({ onLogout, user }) => {
 
           {/* Tasks Section */}
           <div className="w-full">
-            <Outlet onLogout={onLogout} user={user}/>
+            <Outlet />
           </div>
         </main>
       </div>

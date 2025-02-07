@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { MdDeleteForever } from "react-icons/md";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [newProduct, setNewProduct] = useState({ name: "", data: {} });
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortOrder, setSortOrder] = useState("name"); // default sorting by name
+  const [sortOrder, setSortOrder] = useState("name");
 
   useEffect(() => {
     fetch("https://api.restful-api.dev/objects")
@@ -39,7 +40,7 @@ const Products = () => {
       .then((res) => res.json())
       .then((data) => {
         setProducts([...products, data]);
-        setNewProduct({ name: "", data: {} }); // Reset input fields
+        setNewProduct({ name: "", data: {} });
       });
   };
 
@@ -52,20 +53,16 @@ const Products = () => {
     setSortOrder(e.target.value);
   };
 
-  // Sorting products based on the selected sort order
   const sortedProducts = [...products].sort((a, b) => {
     if (sortOrder === "price") {
-      // Handle sorting by price
       const priceA = a.data?.price || 0;
       const priceB = b.data?.price || 0;
       return priceA - priceB;
     } else if (sortOrder === "capacity") {
-      // Handle sorting by capacity
       const capacityA = a.data?.capacity || 0;
       const capacityB = b.data?.capacity || 0;
       return capacityA - capacityB;
     } else {
-      // Default sorting by name
       return a.name.localeCompare(b.name);
     }
   });
@@ -76,21 +73,37 @@ const Products = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-4 bg-[#eaf2eb] dark:bg-[#2f3630]">
-      <h2 className="text-2xl font-bold mb-4 text-[#333] dark:text-white">Products List</h2>
+      <h2 className="text-2xl font-bold mb-4 text-green-600">All Products </h2>
 
-      {/* Search Input */}
-      <div className="mb-4 flex gap-2">
-        <input
-          type="text"
-          placeholder="Search products..."
-          className="p-2 border rounded flex-1 bg-gray-200 dark:bg-[#444] dark:text-white border-gray-300 dark:border-gray-600"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+        {/* Sort Options */}
+        <div className="mb-4 flex gap-2">
+          <select
+            className="p-2 border rounded bg-gray-200 dark:bg-[#444] dark:text-white border-gray-300 dark:border-gray-600"
+            value={sortOrder}
+            onChange={handleSortChange}
+          >
+            <option value="name">Sort by Name</option>
+            <option value="price">Sort by Price</option>
+            <option value="capacity">Sort by Capacity</option>
+          </select>
+        </div>
+        {/* Search Input */}
+        <div className="mb-4 flex gap-2 w-[300px]">
+          <input
+            type="text"
+            placeholder="🔍 Search products..."
+            className="p-2 border rounded flex-1 bg-gray-200 dark:bg-[#444] dark:text-white border-gray-300 dark:border-gray-600"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
       </div>
 
+      <h1 className="font-medium my-2">Add a Product</h1>
+
       {/* Add Product Form */}
-      <div className="mb-4 flex gap-2">
+      <div className="mb-4 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         <input
           type="text"
           name="name"
@@ -116,24 +129,11 @@ const Products = () => {
           onChange={handleDetailsChange}
         />
         <button
-          className="p-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+          className="p-2 bg-green-700 text-white rounded w-[150px] hover:bg-green-800 font-medium"
           onClick={addProduct}
         >
           Add Product
         </button>
-      </div>
-
-      {/* Sort Options */}
-      <div className="mb-4 flex gap-2">
-        <select
-          className="p-2 border rounded bg-gray-200 dark:bg-[#444] dark:text-white border-gray-300 dark:border-gray-600"
-          value={sortOrder}
-          onChange={handleSortChange}
-        >
-          <option value="name">Sort by Name</option>
-          <option value="price">Sort by Price</option>
-          <option value="capacity">Sort by Capacity</option>
-        </select>
       </div>
 
       {/* Products Table */}
@@ -150,7 +150,7 @@ const Products = () => {
           <tbody>
             {filteredProducts.map((product, index) => (
               <tr key={product.id} className="border-b hover:bg-gray-50 dark:hover:bg-[#444]">
-                <td className="px-4 py-2 text-[#333] dark:text-white">{index + 1}</td>
+                <td className="px-4 py-2 text-green-600 text-lg font-medium dark:text-green-600">{index + 1}.</td>
                 <td className="px-4 py-2 text-[#333] dark:text-white">{product.name}</td>
                 <td className="px-4 py-2 text-[#333] dark:text-white">
                   {product.data ? (
@@ -165,12 +165,12 @@ const Products = () => {
                     "N/A"
                   )}
                 </td>
-                <td className="px-4 py-2">
+                <td className="px-4 py-2 text-center">
                   <button
-                    className="text-red-500 hover:text-red-700"
+                    className="text-red-500 text-center hover:text-red-700"
                     onClick={() => deleteProduct(product.id)}
                   >
-                    Delete
+                    <MdDeleteForever size={25} />
                   </button>
                 </td>
               </tr>

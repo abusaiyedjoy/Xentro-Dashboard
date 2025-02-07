@@ -15,17 +15,17 @@ const MyProfile = () => {
               className="w-32 h-32 mx-auto rounded-full border-4 border-gray-300 dark:border-gray-700"
             />
             <h2 className="text-2xl font-semibold mt-4">Abu Saiyed Joy</h2>
-            <p className="text-gray-600 dark:text-gray-300">Admin</p>
+            <p className="text-green-600 dark:text-green-500">Admin</p>
             
             {/* Social Links */}
             <div className="flex justify-center gap-4 mt-4">
-              <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">
+              <a href="https://github.com/abusaiyedjoy" target="_blank" className="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-700">
                 <FaGithub size={24} />
               </a>
-              <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">
+              <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-700">
                 <FaLinkedin size={24} />
               </a>
-              <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">
+              <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-700">
                 <FaTwitter size={24} />
               </a>
             </div>
